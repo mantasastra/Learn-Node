@@ -7,8 +7,8 @@
   },
   "scripts": {
     "prod": "node ./start.js",
-    "watch": "nodemon ./start.js --ignore public/",
-    "start": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
+    "watch": "nodemon --exec babel-node ./start.js --ignore public/",
+    "start": "concurrently \"yarn watch\" \"yarn assets\" --names \"💻,📦\" --prefix name",
     "assets": "webpack -w",
     "sample": "node ./data/load-sample-data.js",
     "blowitallaway": "node ./data/load-sample-data.js --delete",
@@ -16,7 +16,10 @@
   },
   "browserslist": "last 3 versions",
   "dependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/node": "^7.16.0",
     "axios": "0.24.0",
+    "babel-jest": "^27.3.1",
     "connect-flash": "0.1.1",
     "connect-mongo": "4.6.0",
     "cookie-parser": "1.4.5",
@@ -46,8 +49,8 @@
     "validator": "13.7.0"
   },
   "devDependencies": {
-    "@babel/core": "7.16.0",
-    "@babel/preset-env": "7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "autoprefixer": "10.4.0",
     "babel-loader": "8.2.3",
     "concurrently": "6.3.0",

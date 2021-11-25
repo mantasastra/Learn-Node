@@ -1,15 +1,15 @@
-const express = require('express');
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const passport = require('passport');
-const promisify = require('es6-promisify');
-const flash = require('connect-flash');
-const expressValidator = require('express-validator');
-const routes = require('./routes/index');
-const helpers = require('./helpers');
-const errorHandlers = require('./handlers/errorHandlers');
+import express from "express"
+import session from 'express-session'
+import MongoStore from 'connect-mongo'
+import path from 'path'
+import cookieParser from 'cookie-parser'
+import passport from 'passport'
+import promisify from 'es6-promisify'
+import flash from 'connect-flash'
+import expressValidator from 'express-validator'
+import routes from './routes/index'
+import helpers from './helpers'
+import errorHandlers from './handlers/errorHandlers'
 
 // create our Express app
 const app = express();
@@ -63,7 +63,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// After allllll that above middleware, we finally handle our own routes!
+// After all that above middleware, we finally handle our own routes!
 app.use('/', routes);
 
 // If that above routes didnt work, we 404 them and forward to error handler
